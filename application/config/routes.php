@@ -51,8 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 // Handle vote commits
-$route['commit_vote'] = 'receive_vote';
+$route['commit_vote/(:any)/(:any)/(:any)'] = 'api/commit_vote/$1/$2/$3';
 
 //default routes
+$route['default_controller'] = 'api';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
