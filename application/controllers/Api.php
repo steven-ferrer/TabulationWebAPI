@@ -2,34 +2,39 @@
 
   class Api extends CI_Controller
   {
-
+    // Api constructor
     function __construct()
     {
       parent::__construct();
-      $this->load->database();
     }
 
+    //For Testing only - TODO: Remove
     public function index()
     {
       $this->load->view('error');
     }
 
+    //Vote ssaving to db
     public function commit_vote($judge_id, $candid_id, $vote)
     {
-      $this->db->trans_start();
+      $this->load->model('Vote_model');
+      $res = $this->vote_model->vote($judge_id, $candid_id, $vote);
 
-      $this->db->query(
-        "INSERT INTO Vote
-         VALUES('$judge_id', '$candid_id', '$vote')"
-      );
-
-      $this->db->trans_complete();
-      if($this->db->trans_status() === FALSE)
+      if($res)
       {
-        $this->load->view('error');
-      } else {
         $this->load->view('ok');
+      } else {
+        $this->load->view('error');
       }
+
+    }
+
+    public function login()
+    {
+      $user = $this->input->post('judge_id');
+      $pass = $this->input->post('pass');
+
+      if()
     }
 
   }
