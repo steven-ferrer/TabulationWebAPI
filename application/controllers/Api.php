@@ -17,7 +17,7 @@
     //Vote ssaving to db
     public function commit_vote($judge_id, $candid_id, $vote)
     {
-      $this->load->model('Vote_model');
+      $this->load->model('vote_model');
       $res = $this->vote_model->vote($judge_id, $candid_id, $vote);
 
       if($res)
@@ -31,10 +31,23 @@
 
     public function login()
     {
-      $user = $this->input->post('judge_id');
-      $pass = $this->input->post('pass');
+      $this->load->model('user_model');
+      $user = 'qwe'; //$this->input->post('judge_id');
+      $pass = 'qwe'; //$this->input->post('pass');
 
-      if()
+      if($this->user_model->user_exist($user))
+      {
+        if($this->user_model->user_pass_match($user,$pass))
+        {
+          $data['json'] = $this->user_model->get_user_info('qwe');
+          $this->load->view('output_json', $data);
+        } else {
+          $this->load->view('error');
+        }
+      } else {
+        $this->load->view('error');
+      }
+
     }
 
   }
