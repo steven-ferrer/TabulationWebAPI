@@ -50,4 +50,13 @@
 
     }
 
+    public function fetch($categ_id = NULL)
+    {
+      if($categ_id === NULL)
+      {
+        $this->load->model('event_model');
+        $events = $this->event_model->get_events();
+      }
+    }
+
   }
