@@ -50,9 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-// Handle vote commits
+// vote route
 $route['commit_vote/(:any)/(:any)/(:any)'] = 'api/commit_vote/$1/$2/$3';
+
+// login route
 $route['login'] = 'api/login';
+
+// fetch route
+$route['fetch'] = 'api/fetch';
+$route['fetch/(:any)'] = 'api/fetch/$1';
 
 //default routes
 $route['default_controller'] = 'api';

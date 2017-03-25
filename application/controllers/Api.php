@@ -56,7 +56,15 @@
       {
         $this->load->model('event_model');
         $events = $this->event_model->get_events();
+        //echo 'evetns '.$events;
+
+        $data['json'] = $events;
+
+        //$this->load->view('output_json', $data);
+      } else {
+
       }
+
     }
 
   }

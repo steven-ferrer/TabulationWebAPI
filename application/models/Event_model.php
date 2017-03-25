@@ -17,12 +17,13 @@
          FROM Event"
       );
       $events = array();
-      foreach($res->result as $row)
+      foreach($res->result_array() as $row)
       {
         array_push($events, $row);
       }
 
-      json_encode($events);
+      return json_encode($events);
+
     }
 
   }
