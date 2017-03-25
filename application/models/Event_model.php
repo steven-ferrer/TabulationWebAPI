@@ -16,13 +16,20 @@
         "SELECT id, name
          FROM Event"
       );
+      $this->db->trans_complete();
       $events = array();
       foreach($res->result_array() as $row)
       {
         array_push($events, $row);
       }
 
+
       return json_encode($events);
+
+    }
+
+    public function get_categories($id)
+    {
 
     }
 
