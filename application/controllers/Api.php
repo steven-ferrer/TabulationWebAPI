@@ -52,18 +52,19 @@
 
     public function fetch($categ_id = NULL)
     {
+      $this->load->model('event_model');
       if($categ_id === NULL)
       {
-        $this->load->model('event_model');
         $events = $this->event_model->get_events();
 
         $data['json'] = $events;
 
-        $this->load->view('output_json', $data);
       } else {
-
+        $categs = $this->event_model->get_categories($categ_id);
+        $data['json'] = $categs;
       }
 
+      $this->load->view('output_json', $data);
     }
 
   }

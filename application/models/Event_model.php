@@ -30,7 +30,19 @@
 
     public function get_categories($id)
     {
-
+      $this->db->trans_start();
+      $res = $this->db->query(
+        "SELECT id, name
+         FROM Category
+         WHERE Event_ID='$id'"
+      );
+      $this->db->trans_complete();
+      $events = array();
+      foreach($res->result_array() as $row)
+      {
+        array_push($events, $row);
+      }
+      return json_encode($events);
     }
 
   }
