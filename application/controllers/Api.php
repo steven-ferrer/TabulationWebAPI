@@ -11,7 +11,9 @@
     //For Testing only - TODO: Remove
     public function index()
     {
-      $this->load->view('error');
+      $this->load->model('vote_model');
+      $res = $this->vote_model->getResult("1");
+      print_r($res);
     }
 
     //Vote ssaving to db
@@ -65,6 +67,14 @@
       }
 
       $this->load->view('output_json', $data);
+    }
+
+    public function getResults($eventID)
+    {
+      if($eventID == "2") // Pageant event
+      {
+
+      }
     }
 
   }
