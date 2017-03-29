@@ -56,6 +56,9 @@ $route['commit_vote/(:any)/(:any)/(:any)'] = 'api/commit_vote/$1/$2/$3';
 // login route
 $route['login'] = 'api/login';
 
+//result route
+$route['getResults/(:any)'] = 'api/getResults/$1';
+
 // fetch route
 $route['fetch'] = 'api/fetch';
 $route['fetch/(:any)'] = 'api/fetch/$1';
