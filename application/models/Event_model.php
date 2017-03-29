@@ -22,7 +22,8 @@
       {
         array_push($events, $row);
       }
-
+      $status = array("status"=>'200');
+      array_push($events, $status);
 
       return json_encode($events);
 

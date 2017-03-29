@@ -11,16 +11,14 @@
     //For Testing only - TODO: Remove
     public function index()
     {
-      $this->load->model('vote_model');
-      $res = $this->vote_model->getResult("1");
-      print_r($res);
+
     }
 
     //Vote ssaving to db
-    public function commit_vote($judge_id, $candid_id, $vote)
+    public function commit_vote($judge_id, $candid_id, $categ_id, $vote)
     {
       $this->load->model('vote_model');
-      $res = $this->vote_model->vote($judge_id, $candid_id, $vote);
+      $res = $this->vote_model->vote($judge_id, $candid_id, $categ_id, $vote);
 
       if($res)
       {
@@ -71,9 +69,20 @@
 
     public function getResults($eventID)
     {
+      $this->load->model('vote_model');
       if($eventID == "2") // Pageant event
       {
-
+        $res = $this->vote_model->getResultPageant();
+        $json=json_encode($res);
+        $data['json'] = $json;
+        $this->load->view('output_json', $data);
+      }
+      else if($eventID == "1") // cheer leading
+      {
+        $res = $this->vote_model->getResultCheer();
+        $json=json_encode($res);
+        $data['json'] = $json;
+        $this->load->view('output_json', $data);
       }
     }
 
