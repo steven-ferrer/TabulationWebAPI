@@ -50,14 +50,14 @@
     {
       $this->db->trans_start();
       $resultSet = $this->db->query(
-        "SELECT Candidate.name, total_vote
+        "SELECT C.name, total_vote
          FROM (
            SELECT candid_id, SUM(vote) AS total_vote
            FROM Vote
            WHERE categ_id BETWEEN 5 AND 10
            GROUP BY candid_id
          ) AS T
-         INNER JOIN Candidate ON candid_id=Candidate.ID
+         INNER JOIN Candidate C ON candid_id=C.ID
          ORDER BY total_vote DESC"
       );
       $this->db->trans_complete();
@@ -84,10 +84,10 @@
     {
       $this->db->trans_start();
       $res = $this->db->query(
-        "SELECT Candidate.name AS candid_name,
+        "SELECT C.name AS candid_name,
          SUM(vote) AS total_vote
          FROM Vote
-         INNER JOIN Candidate ON candid_id=Candidate.ID
+         INNER JOIN Candidate C ON candid_id=C.ID
          WHERE categ_id='$categ'
          GROUP BY candid_id, categ_id
          ORDER BY vote DESC"
@@ -106,9 +106,9 @@
     {
       $this->db->trans_start();
       $res = $this->db->query(
-        "SELECT Candidate.name AS candid_name, SUM(vote) AS total_vote
+        "SELECT C.name AS candid_name, SUM(vote) AS total_vote
         FROM Vote
-        INNER JOIN Candidate ON candid_id=Candidate.ID
+        INNER JOIN Candidate C ON candid_id=C.ID
         GROUP BY candid_id
         ORDER BY total_vote DESC"
       );
