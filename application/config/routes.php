@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 // vote route
-$route['commit_vote/(:any)/(:any)/(:any)'] = 'api/commit_vote/$1/$2/$3';
+$route['commit_vote/(:any)/(:any)/(:any)/(:any)'] = 'api/commit_vote/$1/$2/$3/$4';
 
 // login route
 $route['login'] = 'api/login';
