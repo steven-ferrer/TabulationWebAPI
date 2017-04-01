@@ -22,9 +22,9 @@
       {
         array_push($events, $row);
       }
-      
-      array_push($events, $status);
+
       $data = array("data"=>$events);
+
       return json_encode($data);
 
     }
