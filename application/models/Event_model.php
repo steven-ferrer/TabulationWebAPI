@@ -43,7 +43,10 @@
       {
         array_push($events, $row);
       }
-      return json_encode($events);
+
+      $data = array("categs"=>$events);
+
+      return json_encode($data);
     }
 
   }
