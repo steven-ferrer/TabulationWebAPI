@@ -60,7 +60,7 @@
         $data['json'] = $events;
 
       } else {
-        $categs = $this->event_model->get_categories($categ_id);
+        $categs = $this->event_model->get_categs_candids($categ_id);
         $data['json'] = $categs;
       }
 
