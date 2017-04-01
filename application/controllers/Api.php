@@ -73,14 +73,16 @@
       if($eventID == "2") // Pageant event
       {
         $res = $this->vote_model->getResultPageant();
-        $json=json_encode($res);
+        $win = array("winner_list"=>$res);
+        $json=json_encode($win);
         $data['json'] = $json;
         $this->load->view('output_json', $data);
       }
       else if($eventID == "1") // cheer leading
       {
         $res = $this->vote_model->getResultCheer();
-        $json=json_encode($res);
+        $win = array("winner_list"=>$res);
+        $json=json_encode($win);
         $data['json'] = $json;
         $this->load->view('output_json', $data);
       }
