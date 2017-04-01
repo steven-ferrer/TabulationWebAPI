@@ -24,8 +24,8 @@
       }
       $status = array("status"=>'200');
       array_push($events, $status);
-
-      return json_encode($events);
+      $data = array("data"=>$events);
+      return json_encode($data);
 
     }
 
