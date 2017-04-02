@@ -109,6 +109,7 @@
         "SELECT C.name AS candid_name, SUM(vote) AS total_vote
         FROM Vote
         INNER JOIN Candidate C ON candid_id=C.ID
+        WHERE C.event_ID='2'
         GROUP BY candid_id
         ORDER BY total_vote DESC"
       );
