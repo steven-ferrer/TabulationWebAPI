@@ -8,10 +8,9 @@
       parent::__construct();
     }
 
-    //For Testing only - TODO: Remove
     public function index()
     {
-
+      $this->load->view("ok");
     }
 
     //Vote ssaving to db

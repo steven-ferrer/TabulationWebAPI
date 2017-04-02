@@ -14,7 +14,7 @@
 
       $this->db->query(
         "INSERT INTO Vote
-         VALUES('$judge_id', '$candid_id', '$categ_id', '$vote')"
+         VALUES( NULL, '$judge_id', '$candid_id', '$categ_id', '$vote')"
       );
 
       $this->db->trans_complete();
